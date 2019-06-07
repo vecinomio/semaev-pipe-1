@@ -3,6 +3,7 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
+  env.IMAGE_NAME = 'my-bad-image:0.3'
   agent {
     label 'master'
   }
@@ -15,7 +16,7 @@ pipeline {
       steps {
         echo "====================== start building image ====================="
         dir ('docker/toolbox') {
-          sh 'docker build -t my-bad-image:0.3 .'
+          sh 'docker build -t $IMAGE_NAME .'
         }
       }
     }
@@ -23,7 +24,7 @@ pipeline {
       steps {
         echo "====================== delete image ====================="
         dir ('docker/toolbox') {
-          sh 'docker rmi my-bad-image:0.3'
+          sh 'docker rmi $IMAGE_NAME'
         }
       }
     }
