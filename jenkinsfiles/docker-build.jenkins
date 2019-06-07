@@ -1,9 +1,9 @@
 #!groovy
 //Only one build can run
 properties([disableConcurrentBuilds()])
+env.IMAGE_NAME = 'my-bad-image:0.3'
 
 pipeline {
-  env.IMAGE_NAME = 'my-bad-image:0.3'
   agent {
     label 'master'
   }
