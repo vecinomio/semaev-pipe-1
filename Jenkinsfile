@@ -1,6 +1,6 @@
 #!groovy
 //Only one build can run
-properties([disableConcurentBuilds()])
+//properties([disableConcurentBuilds()])
 
 pipeline {
   agent {
