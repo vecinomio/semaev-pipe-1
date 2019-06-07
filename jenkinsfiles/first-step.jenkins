@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage("test") {
       steps {
-        echo $USER
+        sh 'echo $USER'
         echo 'build finished'
       }
     }
