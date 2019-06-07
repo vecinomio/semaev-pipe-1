@@ -15,7 +15,10 @@ pipeline {
       steps {
         echo "====================== start building image ====================="
         dir ('docker/toolbox') {
-          sh 'docker build -t my-bad-image:0.2 .'
+          sh 'imageName=my-bad-image:0.3'
+          sh 'docker build -t $imageName .'
+          echo '==================== delete image ====================='
+          //sh 'docker rmi $imageName'
         }
       }
     }
