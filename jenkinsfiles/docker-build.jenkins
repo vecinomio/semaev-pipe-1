@@ -11,10 +11,12 @@ pipeline {
     timestamps()
   }
   stages {
-    stage("first-step") {
+    stage("create docker image") {
       steps {
-        sh 'echo $USER'
-        echo 'build finished'
+        echo "====================== start building image ====================="
+        dir ('docker/toolbox') {
+          sh 'docker build .'
+        }
       }
     }
   }
